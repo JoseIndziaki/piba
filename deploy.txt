@@ -1,0 +1,9 @@
+keytool -genkey -v -keystore piba.keystore -alias piba -keyalg RSA -keysize 2048 -validity 10000
+Pass: PibaAnahuac
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore piba.keystore Piba.apk piba
+
+jarsigner -verify -verbose -certs Preuniversitarios.apk
+
+zipalign -v 4 Preuniversitarios-unaligned.apk Preuniversitarios.apk
